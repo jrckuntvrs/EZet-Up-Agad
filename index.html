@@ -1,0 +1,329 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set-Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="user/css/user.css" rel="stylesheet">
+
+    </head>
+    <body>
+
+    <nav class="navbar navbar-expand-md bg-white border-bottom sticky-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+        <img src="./img/logo.png" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto mono" style="font-size:.85rem;">
+            <li class="nav-item"><a class="nav-link nav-btn active" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link btn btn-link nav-btn" href="pages/tutorial.html">FAQ</a></li>
+        </ul>
+        <div class="btn-toolbar ms-md-3 mt-2 mt-md-0 gap-2">
+            <button class="btn btn-primary nav-btn">
+                <a href="login.html" class="text-white text-decoration-none">Get Started</a>
+            </button>
+        </div>
+        </div>
+    </div>
+    </nav>
+
+    <!-- ===== HOME ===== -->
+    <section class="view active" id="view-home">
+    <div class="container py-5">
+        <span class="eyebrow badge rounded-pill px-3 py-2 mb-3">STEP-BY-STEP · NO TECH SKILLS REQUIRED</span>
+        <h1 class="display-6" style="max-width:16ch;">Install and activate Windows or Office yourself.</h1>
+        <p class="text-soft fs-5 mt-3" style="max-width:56ch;">No technician needed. Follow a guided, numbered walkthrough for installing, upgrading, and activating — with plain-language steps and tips along the way.</p>
+        <div class="d-flex gap-2 mt-4">
+        <button class="btn btn-primary" data-goto="tutorials">Start a tutorial</button>
+        <button class="btn btn-outline-secondary" data-goto="faq">Browse FAQ</button>
+        </div>
+    </div>
+    <div class="container pb-5">
+        <div class="row g-3">
+        <div class="col-md-4">
+        <div class="card h-100 hover-card" onclick="window.location.href='login.html'">
+            <div class="card-body">
+                <div class="badge-tint rounded-3 d-inline-flex p-2 mb-3"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h7"/></svg></div>
+                <h3 class="h6">Tutorials</h3>
+                <p class="text-soft small mb-0">Guided, step-by-step wizards for installing or upgrading Windows and Office.</p>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 hover-card" data-goto="activation">
+            <div class="card-body">
+                <div class="badge-tint rounded-3 d-inline-flex p-2 mb-3"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+                <h3 class="h6">Activation</h3>
+                <p class="text-soft small mb-0">How to activate Windows and Office, plus fixes for common errors.</p>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card h-100 hover-card" data-goto="faq">
+            <div class="card-body">
+                <div class="badge-tint rounded-3 d-inline-flex p-2 mb-3"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.5 9a2.5 2.5 0 0 1 5 0c0 1.5-2 2-2 3.5M12 17h.01"/></svg></div>
+                <h3 class="h6">FAQ</h3>
+                <p class="text-soft small mb-0">Quick answers to the questions people ask most before and during setup.</p>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- ===== TUTORIALS ===== -->
+    <section class="view" id="view-tutorials">
+    <div class="container py-4" id="tutorials-browse">
+        <span class="eyebrow badge rounded-pill px-3 py-2 mb-2">TUTORIALS</span>
+        <h2 class="h3">Pick a guide to get started</h2>
+        <p class="text-soft mb-4">Each guide breaks the process into small, numbered steps you can follow at your own pace.</p>
+        <ul class="nav nav-pills mb-4" id="tutorial-tabs">
+        <li class="nav-item"><button class="nav-link active" data-cat="all">All</button></li>
+        <li class="nav-item"><button class="nav-link" data-cat="windows">Windows</button></li>
+        <li class="nav-item"><button class="nav-link" data-cat="office">Office</button></li>
+        </ul>
+        <div class="row g-3" id="guide-grid"></div>
+    </div>
+
+    <div class="container" id="wizard-area" style="display:none;">
+        <button class="btn btn-link ps-0 mb-2" id="back-to-tutorials">← Back to guides</button>
+        <div class="row border-top pt-4">
+        <div class="col-md-4 col-lg-3">
+            <div class="mono text-soft small text-uppercase mb-2" id="rail-guide-title" style="letter-spacing:.05em;"></div>
+            <div class="list-group" id="rail-steps"></div>
+        </div>
+        <div class="col-md-8 col-lg-9">
+            <div class="card border-0" id="step-pane" style="max-width:640px;"></div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- ===== ACTIVATION ===== -->
+    <section class="view" id="view-activation">
+    <div class="container py-4">
+        <span class="eyebrow badge rounded-pill px-3 py-2 mb-2">ACTIVATION</span>
+        <h2 class="h3">Activate Windows &amp; Office</h2>
+        <p class="text-soft mb-4" style="max-width:60ch;">Installing is only half the job — here's how to confirm you're properly licensed and fix the most common activation errors.</p>
+        <div class="row g-3">
+        <div class="col-md-6">
+            <div class="card h-100">
+            <div class="card-body">
+                <div class="badge-tint rounded-3 d-inline-flex p-2 mb-2"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5.5 10.5 4v7.5H3V5.5ZM3 12.5h7.5V20L3 18.5v-6ZM11.5 3.9 21 2.5v9H11.5V3.9ZM11.5 12.5H21v9l-9.5-1.4v-7.6Z"/></svg></div>
+                <h3 class="h6">Activate Windows</h3>
+                <ol class="list-group list-group-numbered list-group-flush small">
+                <li class="list-group-item px-0">Open <strong>Settings</strong> and go to <strong>System &gt; Activation</strong>.</li>
+                <li class="list-group-item px-0">Click <strong>Change product key</strong> and enter your 25-character key.</li>
+                <li class="list-group-item px-0">Click <strong>Next</strong> and follow the prompts — activation happens automatically once verified.</li>
+                <li class="list-group-item px-0">Recheck the Activation page any time — it should read "Windows is activated."</li>
+                </ol>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+            <div class="card-body">
+                <div class="badge-tint rounded-3 d-inline-flex p-2 mb-2"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg></div>
+                <h3 class="h6">Activate Office</h3>
+                <ol class="list-group list-group-numbered list-group-flush small">
+                <li class="list-group-item px-0">Open any Office app, like Word.</li>
+                <li class="list-group-item px-0">If prompted, sign in with the Microsoft account linked to your license.</li>
+                <li class="list-group-item px-0">If not prompted, go to <strong>File &gt; Account</strong> and check Product Information.</li>
+                <li class="list-group-item px-0">Click <strong>Activate Product</strong> if shown, and sign in when asked.</li>
+                </ol>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+            <div class="card-body">
+                <div class="badge-tint rounded-3 d-inline-flex p-2 mb-2"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/></svg></div>
+                <h3 class="h6">"We can't activate Windows on this device"</h3>
+                <ol class="list-group list-group-numbered list-group-flush small">
+                <li class="list-group-item px-0">Make sure you're connected to the internet — activation reaches Microsoft's servers.</li>
+                <li class="list-group-item px-0">Run the built-in <strong>Activation Troubleshooter</strong> on the Activation settings page.</li>
+                <li class="list-group-item px-0">Double-check your key has no typos — 0 (zero) and O (letter) look alike.</li>
+                <li class="list-group-item px-0">Still stuck? The key may be tied to different hardware — contact wherever you got the license.</li>
+                </ol>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+            <div class="card-body">
+                <div class="badge-tint rounded-3 d-inline-flex p-2 mb-2"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="10"/></svg></div>
+                <h3 class="h6">Office keeps asking to activate</h3>
+                <ol class="list-group list-group-numbered list-group-flush small">
+                <li class="list-group-item px-0">Confirm you're signed in with the correct account — check File &gt; Account.</li>
+                <li class="list-group-item px-0">Sign out completely, restart the app, and sign back in.</li>
+                <li class="list-group-item px-0">Make sure your subscription or license hasn't expired.</li>
+                <li class="list-group-item px-0">Signing in on too many devices for one license can trigger this.</li>
+                </ol>
+            </div>
+            </div>
+        </div>
+        </div>
+        <div class="alert alert-light border mt-4">
+        <strong>Quick check:</strong> Press <code>Win + I</code> to open Settings, then go to <code>System → Activation</code>. It clearly says "Windows is activated" or lists an error you can search by name.
+        </div>
+    </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="view" id="view-faq">
+    <div class="container py-4" style="max-width:760px;">
+        <span class="eyebrow badge rounded-pill px-3 py-2 mb-2">FAQ</span>
+        <h2 class="h3">Frequently asked questions</h2>
+        <p class="text-soft mb-4">Quick answers to what people usually ask before and during setup.</p>
+        <div class="accordion" id="faqAccordion"></div>
+    </div>
+    </section>
+
+    <footer class="border-top py-4 text-center text-soft mono small">SetupGuide — a self-service install &amp; activation tutorial system</footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script>
+    const GUIDES = {
+    "windows11-fresh": { category:"windows", title:"Install Windows 11 (Fresh Install)", subtitle:"Set up a new copy of Windows 11 from a USB drive", estTime:"45–60 min", difficulty:"Beginner",
+        steps:[
+        { title:"Check your PC meets the requirements", description:"Windows 11 needs at least 4GB RAM, 64GB storage, and a TPM 2.0 chip. Most laptops made after 2018 already meet this.", tip:"Download Microsoft's free 'PC Health Check' app to check in one click." },
+        { title:"Back up your files", description:"A fresh install erases the drive. Copy anything important to a USB drive or cloud storage first.", tip:"Skipping this is the #1 reason people lose files." },
+        { title:"Download the Media Creation Tool", description:"Go to microsoft.com/software-download/windows11 and download the official tool.", tip:"Only ever download Windows from microsoft.com." },
+        { title:"Create your installation USB", description:"Insert a USB drive (8GB+, will be erased), choose 'Create installation media for another PC'.", tip:"A USB 3.0 drive makes this much faster." },
+        { title:"Boot from the USB drive", description:"Restart with the USB plugged in, press your Boot Menu key (F12/F2/Esc/Del) and select the USB.", tip:"Search your laptop brand + 'boot menu key' if unsure." },
+        { title:"Follow the Setup wizard & install", description:"Choose language, click Install Now, select Custom install, choose your drive, then let Windows finish and set up your account.", tip:"You can skip the product key and activate later." }
+        ]},
+    "windows-upgrade": { category:"windows", title:"Upgrade to Windows 11", subtitle:"Upgrade an existing Windows 10 PC without losing your files", estTime:"30–45 min", difficulty:"Beginner",
+        steps:[
+        { title:"Back up your files anyway", description:"Upgrades keep your files, but back up documents and photos first just in case.", tip:"A quick copy to USB or OneDrive only takes a few minutes." },
+        { title:"Check Windows Update", description:"Settings > Windows Update > Check for updates. Look for 'Feature update to Windows 11'.", tip:"Not showing? Try the PC Health Check app to see why." },
+        { title:"Download and install", description:"Click Download and install. You can keep using your PC while it downloads in the background.", tip:"Plug in your laptop — this can take a while." },
+        { title:"Restart and finish", description:"Save your work, restart when prompted, and sign back in once it's done.", tip:"All done — you're now on Windows 11!" }
+        ]},
+    "office-install": { category:"office", title:"Install Microsoft Office", subtitle:"Install Word, Excel, PowerPoint and more", estTime:"20–30 min", difficulty:"Beginner",
+        steps:[
+        { title:"Have your Microsoft account ready", description:"Office is tied to a Microsoft account — school, work, or personal with a license.", tip:"Create one free at account.microsoft.com if needed." },
+        { title:"Go to office.com and sign in", description:"Sign in with your Microsoft account in the top-right corner.", tip:"Only download from office.com or the Microsoft Store." },
+        { title:"Install and activate", description:"Click 'Install Office', run the downloaded file, wait for setup to finish, then open Word and sign in to activate.", tip:"You're all set once Word opens normally!" }
+        ]}
+    };
+    const FAQS = [
+    { q:"Do I need internet to install Windows or Office?", a:"Yes. You'll need an internet connection to download the installer, install updates, and activate your license — even though the actual file copying can run offline once downloaded." },
+    { q:"Can I install Windows without a product key?", a:"Yes — choose 'I don't have a product key' during setup. Windows will install and let you use it, but you'll need to activate it later to unlock all features and remove the watermark." },
+    { q:"Is it safe to download Windows or Office from any website?", a:"No. Only download from microsoft.com or office.com. Other sites may bundle malware or give you a modified, unsafe installer." },
+    { q:"What if my laptop won't boot from the USB drive?", a:"Check your Boot Menu key (often F12, F2, Esc, or Del) and make sure 'Secure Boot' or 'Fast Boot' in BIOS isn't blocking it. Search your laptop's brand plus 'boot from USB' for exact steps." },
+    { q:"Can I use the same Office license on more than one device?", a:"It depends on your license type. Most personal Microsoft 365 plans allow a handful of installs across your own devices — check 'My Account' on office.com." },
+    { q:"My files disappeared after installing Windows — what happened?", a:"A fresh install erases the drive it's installed on. Always back up first — check any external drive or cloud account you may have copied files to before installing." }
+    ];
+    const ICONS = {
+    windows: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5.5 10.5 4v7.5H3V5.5ZM3 12.5h7.5V20L3 18.5v-6ZM11.5 3.9 21 2.5v9H11.5V3.9ZM11.5 12.5H21v9l-9.5-1.4v-7.6Z"/></svg>',
+    office: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg>'
+    };
+
+    // ---- nav ----
+
+
+    // ---- tutorials grid ----
+    function renderGuideGrid(filter) {
+    const grid = document.getElementById('guide-grid');
+    grid.innerHTML = '';
+    Object.entries(GUIDES).forEach(([id, g]) => {
+        if (filter !== 'all' && g.category !== filter) return;
+        const col = document.createElement('div');
+        col.className = 'col-md-4';
+        col.innerHTML = `<div class="card h-100 hover-card" data-id="${id}">
+        <div class="card-body">
+            <h3 class="h6">${g.title}</h3>
+            <p class="text-soft small">${g.subtitle}</p>
+            <div class="d-flex gap-2 align-items-center border-top pt-2 mono text-soft" style="font-size:.72rem;">
+            ${ICONS[g.category]}<span>⏱ ${g.estTime}</span><span>${g.difficulty}</span>
+            </div>
+        </div></div>`;
+        col.querySelector('.card').addEventListener('click', () => openWizard(id));
+        grid.appendChild(col);
+    });
+    }
+    document.querySelectorAll('#tutorial-tabs .nav-link').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('#tutorial-tabs .nav-link').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderGuideGrid(btn.getAttribute('data-cat'));
+    });
+    });
+    renderGuideGrid('all');
+
+    // ---- wizard ----
+    let currentGuide = null, currentStep = 0;
+    function openWizard(id) {
+    currentGuide = GUIDES[id]; currentStep = 0;
+    document.getElementById('tutorials-browse').style.display = 'none';
+    document.getElementById('wizard-area').style.display = 'block';
+    document.getElementById('rail-guide-title').textContent = currentGuide.title;
+    renderRail(); renderStep();
+    }
+    document.getElementById('back-to-tutorials').addEventListener('click', () => {
+    document.getElementById('tutorials-browse').style.display = 'block';
+    document.getElementById('wizard-area').style.display = 'none';
+    });
+    function renderRail() {
+    const rail = document.getElementById('rail-steps');
+    rail.innerHTML = '';
+    currentGuide.steps.forEach((s, i) => {
+        const done = i < currentStep, active = i === currentStep;
+        const el = document.createElement('button');
+        el.type = 'button';
+        el.className = 'list-group-item list-group-item-action d-flex align-items-center gap-2' + (done ? ' rail-done' : '') + (active ? ' rail-active' : '');
+        el.innerHTML = `<span class="rail-node">${done ? '✓' : i+1}</span><span class="small">${s.title}</span>`;
+        el.addEventListener('click', () => { currentStep = i; renderRail(); renderStep(); });
+        rail.appendChild(el);
+    });
+    }
+    function renderStep() {
+    const total = currentGuide.steps.length;
+    const step = currentGuide.steps[currentStep];
+    const pct = Math.round((currentStep/(total-1))*100);
+    const isLast = currentStep === total-1, isFirst = currentStep === 0;
+    document.getElementById('step-pane').innerHTML = `
+        <div class="mono text-soft small mb-2">STEP ${currentStep+1} OF ${total}</div>
+        <div class="progress mb-3" style="height:6px;"><div class="progress-bar" style="width:${pct}%"></div></div>
+        <h2 class="h4">${step.title}</h2>
+        <p class="text-soft my-3">${step.description}</p>
+        ${step.tip ? `<div class="alert tip-alert d-flex gap-2 small"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="flex-shrink-0 mt-1"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span><strong>Tip:</strong> ${step.tip}</span></div>` : ''}
+        <div class="d-flex justify-content-between border-top pt-3 mt-4">
+        <button class="btn btn-outline-secondary" id="btn-back" ${isFirst?'disabled':''}>← Back</button>
+        <button class="btn btn-primary" id="btn-next">${isLast?'Finish':'Next step →'}</button>
+        </div>`;
+    document.getElementById('btn-back').addEventListener('click', () => { if(currentStep>0){currentStep--; renderRail(); renderStep();} });
+    document.getElementById('btn-next').addEventListener('click', () => {
+        if (isLast) {
+        document.getElementById('step-pane').innerHTML = `<div class="text-center py-5">
+            <div class="rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width:56px;height:56px;background:#E4F5F1;color:#12967D;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <h2 class="h4">You're all set!</h2><p class="text-soft">You've completed "${currentGuide.title}".</p></div>`;
+        document.querySelectorAll('.list-group-item').forEach(el => el.classList.add('rail-done'));
+        } else { currentStep++; renderRail(); renderStep(); }
+    });
+    }
+
+    // ---- faq accordion ----
+    const faqWrap = document.getElementById('faqAccordion');
+    FAQS.forEach((f, i) => {
+    const item = document.createElement('div');
+    item.className = 'accordion-item';
+    item.innerHTML = `
+        <h2 class="accordion-header">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq${i}">${f.q}</button>
+        </h2>
+        <div id="faq${i}" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+        <div class="accordion-body text-soft small">${f.a}</div>
+        </div>`;
+    faqWrap.appendChild(item);
+    });
+    </script>
+    </body>
+    </html>

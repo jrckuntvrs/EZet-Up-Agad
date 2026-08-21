@@ -1,0 +1,92 @@
+/* root colors */
+:root {
+    --bs-primary: #2E5FF2;
+    --bs-primary-rgb: 46,95,242;
+    --accent-tint: #E8EEFF;
+    --accent-ink: #1C3FBF;
+    --ink-soft: #4B5768;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* body */
+    body { 
+        font-family: 'Inter', sans-serif; background:#F3F6FA; 
+    }
+    h1,h2,h3,.navbar-brand { 
+        font-family: var(--font-display); 
+        font-weight:600; 
+    }
+    .container img{ 
+        width: 100px; 
+    }
+    .mono { 
+        font-family: var(--font-mono); 
+    }
+    .text-soft { 
+        color: var(--ink-soft); 
+    }
+    .btn-primary { 
+        background:var(--bs-primary); 
+        border-color:var(--bs-primary); 
+    }
+    .btn-primary:hover { 
+        background:var(--accent-ink); 
+        border-color:var(--accent-ink); 
+    }
+    .badge-tint { 
+        background:var(--accent-tint); 
+        color:var(--accent-ink); 
+        font-family:var(--font-mono); 
+        font-weight:500; 
+    }
+    .eyebrow { 
+        font-family:var(--font-mono); 
+        font-size:.75rem; 
+        background:var(--accent-tint); 
+        color:var(--accent-ink); 
+    }
+    .view { 
+        display:none; 
+    }
+    .view.active { display:block; }
+    .hover-card { transition:.15s; cursor:pointer; }
+    .hover-card:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(22,32,44,.08); border-color:var(--bs-primary) !important; }
+    .rail-node { 
+        width:26px; 
+        height:26px; 
+        border-radius:50%; 
+        border:2px solid #C4CDD9; 
+        display:flex; 
+        align-items:center; 
+        justify-content:center; 
+        font-family:var(--font-mono); 
+        font-size:.7rem; 
+        flex-shrink:0; 
+        background:#fff; 
+    }
+    .list-group-item.rail-active .rail-node { 
+        background:var(--bs-primary); 
+        border-color:var(--bs-primary); 
+        color:#fff; 
+    }
+    .list-group-item.rail-done .rail-node { 
+        background:#12967D; 
+        border-color:#12967D; 
+        color:#fff; 
+    }
+    .list-group-item.rail-active { 
+        font-weight:600; 
+    }
+    .tip-alert { 
+        background:#FFF4E0; 
+        border-color:#F0D6A0; 
+        color:#6B4E12; 
+    }
+    .accordion-button:not(.collapsed) { 
+        background:var(--accent-tint); 
+        color:var(--accent-ink); 
+    }
+    .nav-underline .nav-link.active { 
+        font-weight:600; 
+    }
